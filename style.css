@@ -1,62 +1,80 @@
-*{
-    box-sizing: border-box;
+body {
     margin: 0;
-    padding: 0;
-    background-color: rgb(255, 255, 254);
-
+    font-family: Arial, sans-serif;
 }
-li, a{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    font-size: large;
-    color: rgb(8, 8, 8);
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
     text-decoration: none;
 }
-button{
-    color: rgb(255, 255, 255);
-    margin: 15px;
-    font-size: large;
-}
-header{
+
+.navbar .menu {
     display: flex;
-    justify-content:flex-end;
-    align-items: center;
-    padding: 30px 10%;
-}
-.logo{
-    cursor: pointer;
-    margin-right: auto;
-    width: 250px;
-}
-
-.nav_links {
     list-style: none;
-    
+    margin: 0;
+    padding: 0;
 }
 
-.nav_links li {
-    display: inline-block;
-    padding: 0px 20px;
-}
-.nav_links li a{
-    transition: all 0.3s ease 0s;
+.navbar .menu li {
+    margin: 0 10px;
 }
 
-.nav_links li a:hover{
-    color: blue;
+.navbar .menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
 }
 
-button{
-    padding: 9px 25px;
-    background-color:#032446;
-    border: none;
-    border-radius: 5px;
+.navbar .menu li a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
     cursor: pointer;
-    transition: all 0.3s ease 0s;
-
 }
 
-button:hover{
-    background-color: rgba(0, 136, 169, 0.6);
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+@media (max-width: 768px) {
+    .navbar .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+
+    .navbar .menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar .menu li {
+        text-align: center;
+        margin: 0;
+    }
 }
